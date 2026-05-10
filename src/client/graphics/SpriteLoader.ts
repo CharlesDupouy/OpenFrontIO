@@ -4,6 +4,7 @@ import { Theme } from "../../core/configuration/Config";
 import { TrainType, UnitType } from "../../core/game/Game";
 import { UnitView } from "../../core/game/GameView";
 const atomBombSprite = assetUrl("sprites/atombomb.png");
+const godzillaSprite = assetUrl("sprites/godzilla-3584.png");
 const hydrogenBombSprite = assetUrl("sprites/hydrogenbomb.png");
 const mirvSprite = assetUrl("sprites/mirv2.png");
 const samMissileSprite = assetUrl("sprites/samMissile.png");
@@ -24,6 +25,7 @@ const TrainTypeSprite = {
 type TrainTypeSprite = (typeof TrainTypeSprite)[keyof typeof TrainTypeSprite];
 
 const SPRITE_CONFIG: Partial<Record<UnitType | TrainTypeSprite, string>> = {
+  [UnitType.Godzilla]: godzillaSprite,
   [UnitType.TransportShip]: transportShipSprite,
   [UnitType.Warship]: warshipSprite,
   [UnitType.SAMMissile]: samMissileSprite,
@@ -172,6 +174,9 @@ function computeSpriteKey(
   const key = `${type}-${owner.id()}-${territoryColor.toRgbString()}-${borderColor.toRgbString()}`;
   return key;
 }
+
+export const getRawSprite = (type: UnitType): ImageBitmap | null =>
+  spriteMap.get(type) ?? null;
 
 export const getColoredSprite = (
   unit: UnitView,

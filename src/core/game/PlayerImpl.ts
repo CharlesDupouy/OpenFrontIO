@@ -1194,6 +1194,8 @@ export class PlayerImpl implements Player {
       case UnitType.AtomBomb:
       case UnitType.HydrogenBomb:
         return this.nukeSpawn(targetTile, unitType);
+      case UnitType.Godzilla:
+        return this.godzillaSpawn(targetTile);
       case UnitType.MIRVWarhead:
         return targetTile;
       case UnitType.Port:
@@ -1262,6 +1264,20 @@ export class PlayerImpl implements Player {
         silo.isActive() && !silo.isInCooldown() && !silo.isUnderConstruction(),
     );
 
+    return bestSilo?.tile() ?? false;
+  }
+
+  godzillaSpawn(tile: TileRef): TileRef | false {
+    const mg = this.mg;
+    if (mg.isSpawnImmunityActive()) {
+      return false;
+    }
+    const bestSilo = findClosestBy(
+      this.units(UnitType.MissileSilo),
+      (silo) => mg.manhattanDist(silo.tile(), tile),
+      (silo) =>
+        silo.isActive() && !silo.isInCooldown() && !silo.isUnderConstruction(),
+    );
     return bestSilo?.tile() ?? false;
   }
 

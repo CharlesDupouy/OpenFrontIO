@@ -178,6 +178,8 @@
     "build_hydrogen_desc": "Large explosive bomb. Spawns from the nearest Missile Silo and lands in the area you first clicked to build it.",
     "build_mirv": "MIRV",
     "build_mirv_desc": "The most powerful bomb in the game. Splits up into smaller bombs that will cover a huge range of territory. Only damages the player that you first clicked on to build it. Spawns from the nearest Missile Silo and lands in the area you first clicked to build it.",
+    "build_godzilla": "Godzilla",
+    "build_godzilla_desc": "Launches Godzilla from the nearest Missile Silo. Upon landing, it roams freely destroying all structures and leaving fallout in its wake. Has 3 hit points; only a nuclear detonation can harm it.",
     "player_icons": "Player icons",
     "troubleshooting_desc": "If you experience performance issues, crashes, or other problems while playing OpenFront, please visit our Troubleshooting page for help diagnosing and fixing common issues:",
     "icon_desc": "Examples of some of the ingame icons you will encounter and what they mean:",
@@ -670,7 +672,8 @@
     "atom_bomb": "Atom Bomb",
     "hydrogen_bomb": "Hydrogen Bomb",
     "mirv": "MIRV",
-    "factory": "Factory"
+    "factory": "Factory",
+    "godzilla": "Godzilla"
   },
   "user_setting": {
     "title": "Settings",
@@ -736,6 +739,8 @@
     "build_hydrogen_bomb_desc": "Build a Hydrogen Bomb under your cursor.",
     "build_mirv": "Build MIRV",
     "build_mirv_desc": "Build a MIRV under your cursor.",
+    "build_godzilla": "Launch Godzilla",
+    "build_godzilla_desc": "Launch Godzilla from a Missile Silo.",
     "menu_shortcuts": "Menu Shortcuts",
     "build_menu_modifier": "Build Menu Modifier",
     "build_menu_modifier_desc": "Hold this key while clicking to open the build menu.",
@@ -889,6 +894,7 @@
       "atom_bomb": "Small explosion",
       "hydrogen_bomb": "Large explosion",
       "mirv": "Huge explosion, only targets selected player",
+      "godzilla": "Neutral monster that destroys structures and leaves fallout",
       "missile_silo": "Used to launch nukes",
       "sam_launcher": "Defends against incoming nukes",
       "warship": "Captures trade ships, destroys ships and boats",

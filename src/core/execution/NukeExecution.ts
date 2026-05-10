@@ -377,7 +377,14 @@ export class NukeExecution implements Execution {
         continue;
       }
       if (mg.euclideanDistSquared(dst, unit.tile()) < outer2) {
-        unit.delete(true, destroyer);
+        if (type === UnitType.Godzilla) {
+          // Godzilla only takes damage from nukes, and only once landed
+          if (unit.reachedTarget()) {
+            unit.modifyHealth(-1, destroyer);
+          }
+        } else {
+          unit.delete(true, destroyer);
+        }
       }
     }
 

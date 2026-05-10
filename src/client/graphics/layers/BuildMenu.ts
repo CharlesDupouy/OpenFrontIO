@@ -26,6 +26,7 @@ import { renderNumber } from "../../Utils";
 import { TransformHandler } from "../TransformHandler";
 import { UIState } from "../UIState";
 import { Layer } from "./Layer";
+const godzillaIcon = assetUrl("sprites/godzilla-3584.png");
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
 const factoryIcon = assetUrl("images/FactoryIconWhite.svg");
@@ -67,6 +68,13 @@ export const buildTable: BuildItemDisplay[][] = [
       icon: hydrogenBombIcon,
       description: "build_menu.desc.hydrogen_bomb",
       key: "unit_type.hydrogen_bomb",
+      countable: false,
+    },
+    {
+      unitType: UnitType.Godzilla,
+      icon: godzillaIcon,
+      description: "build_menu.desc.godzilla",
+      key: "unit_type.godzilla",
       countable: false,
     },
     {

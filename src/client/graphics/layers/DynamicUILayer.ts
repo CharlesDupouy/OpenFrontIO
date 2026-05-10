@@ -104,7 +104,8 @@ export class DynamicUILayer implements Layer {
   onUnitEvent(unit: UnitView) {
     switch (unit.type()) {
       case UnitType.HydrogenBomb:
-      case UnitType.AtomBomb: {
+      case UnitType.AtomBomb:
+      case UnitType.Godzilla: {
         this.onBombEvent(unit);
         break;
       }

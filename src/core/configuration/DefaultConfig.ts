@@ -470,6 +470,12 @@ export class DefaultConfig implements Config {
           cost: () => 0n,
         };
         break;
+      case UnitType.Godzilla:
+        info = {
+          cost: this.costWrapper(() => 2_500_000, UnitType.Godzilla),
+          maxHealth: 3,
+        };
+        break;
       default:
         assertNever(type);
     }

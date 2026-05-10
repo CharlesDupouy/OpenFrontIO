@@ -105,6 +105,9 @@ export class FxLayer implements Layer {
       case UnitType.HydrogenBomb:
         this.eventBus.emit(new PlaySoundEffectEvent("hydrogen-launch"));
         break;
+      case UnitType.Godzilla:
+        this.eventBus.emit(new PlaySoundEffectEvent("atom-launch"));
+        break;
       case UnitType.MIRV:
         this.eventBus.emit(new PlaySoundEffectEvent("mirv-launch"));
         break;

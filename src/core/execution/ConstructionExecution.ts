@@ -3,6 +3,7 @@ import { TileRef } from "../game/GameMap";
 import { CityExecution } from "./CityExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
+import { GodzillaExecution } from "./GodzillaExecution";
 import { MirvExecution } from "./MIRVExecution";
 import { MissileSiloExecution } from "./MissileSiloExecution";
 import { NukeExecution } from "./NukeExecution";
@@ -118,6 +119,11 @@ export class ConstructionExecution implements Execution {
         break;
       case UnitType.MIRV:
         this.mg.addExecution(new MirvExecution(player, this.tile));
+        break;
+      case UnitType.Godzilla:
+        this.mg.addExecution(
+          new GodzillaExecution(player, this.tile, null, -1, this.rocketDirectionUp),
+        );
         break;
       case UnitType.Warship:
         this.mg.addExecution(

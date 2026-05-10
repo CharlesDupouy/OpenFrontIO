@@ -23,6 +23,7 @@ import { Layer } from "./Layer";
 import { GameUpdateType } from "../../../core/game/GameUpdates";
 import {
   getColoredSprite,
+  getRawSprite,
   isSpriteReady,
   loadAllSprites,
 } from "../SpriteLoader";
@@ -454,6 +455,9 @@ export class UnitLayer implements Layer {
       case UnitType.MIRV:
         this.handleNuke(unit);
         break;
+      case UnitType.Godzilla:
+        this.handleGodzilla(unit);
+        break;
     }
   }
 
@@ -588,7 +592,7 @@ export class UnitLayer implements Layer {
     }
   }
 
-  private handleNuke(unit: UnitView) {
+  private updateNukeTrail(unit: UnitView) {
     const rel = this.relationship(unit);
 
     if (!this.unitToTrail.has(unit)) {
@@ -623,9 +627,58 @@ export class UnitLayer implements Layer {
       unit.owner().territoryColor(),
       rel,
     );
-    this.drawSprite(unit);
+
     if (!unit.isActive()) {
       this.pendingTrailClears.push(unit);
+    }
+  }
+
+  private handleNuke(unit: UnitView) {
+    this.updateNukeTrail(unit);
+    this.drawSprite(unit);
+  }
+
+  private handleGodzilla(unit: UnitView) {
+    if (!unit.reachedTarget()) {
+      // In flight: trail only, then draw H-bomb sprite (no Godzilla sprite)
+      this.updateNukeTrail(unit);
+      const hbombSprite = getRawSprite(UnitType.HydrogenBomb);
+      if (hbombSprite && unit.isActive()) {
+        const x = this.game.x(unit.tile());
+        const y = this.game.y(unit.tile());
+        const size = hbombSprite.width;
+        this.context.drawImage(
+          hbombSprite,
+          Math.round(x - size / 2),
+          Math.round(y - size / 2),
+          size,
+          size,
+        );
+      }
+      return;
+    }
+
+    // Clear the nuke trail once (on landing and until flushed)
+    if (
+      this.unitToTrail.has(unit) &&
+      !this.pendingTrailClears.includes(unit)
+    ) {
+      this.pendingTrailClears.push(unit);
+    }
+
+    // On the ground: draw godzilla sprite at a fixed size (~12px)
+    if (unit.isActive()) {
+      const sprite = getColoredSprite(unit, this.theme);
+      const x = this.game.x(unit.tile());
+      const y = this.game.y(unit.tile());
+      const size = 12;
+      this.context.drawImage(
+        sprite,
+        Math.round(x - size / 2),
+        Math.round(y - size / 2),
+        size,
+        size,
+      );
     }
   }
 

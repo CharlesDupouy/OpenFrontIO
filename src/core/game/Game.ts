@@ -340,6 +340,7 @@ export enum UnitType {
   Train = "Train",
   Factory = "Factory",
   Godzilla = "Godzilla",
+  FaultyBomb = "Faulty Bomb",
 }
 
 export enum TrainType {
@@ -353,6 +354,7 @@ export const Nukes = unitTypeGroup([
   UnitType.HydrogenBomb,
   UnitType.MIRVWarhead,
   UnitType.MIRV,
+  UnitType.FaultyBomb,
 ] as const);
 
 export const BuildableAttacks = unitTypeGroup([
@@ -361,6 +363,7 @@ export const BuildableAttacks = unitTypeGroup([
   UnitType.MIRV,
   UnitType.Warship,
   UnitType.Godzilla,
+  UnitType.FaultyBomb,
 ] as const);
 
 export const Structures = unitTypeGroup([
@@ -450,6 +453,11 @@ export interface UnitParamsMap {
 
   [UnitType.MIRVWarhead]: {
     targetTile?: number;
+  };
+
+  [UnitType.FaultyBomb]: {
+    targetTile?: number;
+    trajectory: TrajectoryTile[];
   };
 }
 
@@ -1049,6 +1057,7 @@ export enum MessageType {
   CHAT,
   RENEW_ALLIANCE,
   GODZILLA_INBOUND,
+  FAULTY_BOMB_INBOUND,
 }
 
 // Message categories used for filtering events in the EventsDisplay
@@ -1088,6 +1097,7 @@ export const MESSAGE_TYPE_CATEGORIES: Record<MessageType, MessageCategory> = {
   [MessageType.RECEIVED_TROOPS_FROM_PLAYER]: MessageCategory.TRADE,
   [MessageType.CHAT]: MessageCategory.CHAT,
   [MessageType.GODZILLA_INBOUND]: MessageCategory.NUKE,
+  [MessageType.FAULTY_BOMB_INBOUND]: MessageCategory.NUKE,
 } as const;
 
 /**

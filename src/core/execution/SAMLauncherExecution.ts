@@ -114,7 +114,7 @@ class SAMTargetingSystem {
     const nukes = this.mg.nearbyUnits(
       samTile,
       detectionRange,
-      [UnitType.AtomBomb, UnitType.HydrogenBomb, UnitType.Godzilla],
+      [UnitType.AtomBomb, UnitType.HydrogenBomb, UnitType.FaultyBomb, UnitType.Godzilla],
       ({ unit }) => {
         if (!isUnit(unit) || unit.targetedBySAM()) return false;
         if (unit.owner() === this.sam.owner()) return false;
@@ -150,8 +150,10 @@ class SAMTargetingSystem {
           const target = { tile: cached.tile, unit: nuke.unit };
           if (
             best === null ||
-            (target.unit.type() === UnitType.HydrogenBomb &&
-              best.unit.type() !== UnitType.HydrogenBomb)
+            ((target.unit.type() === UnitType.HydrogenBomb ||
+              target.unit.type() === UnitType.FaultyBomb) &&
+              best.unit.type() !== UnitType.HydrogenBomb &&
+              best.unit.type() !== UnitType.FaultyBomb)
           ) {
             best = target;
           }
@@ -177,8 +179,10 @@ class SAMTargetingSystem {
           const target = { unit: nuke.unit, tile: interceptionTile.tile };
           if (
             best === null ||
-            (target.unit.type() === UnitType.HydrogenBomb &&
-              best.unit.type() !== UnitType.HydrogenBomb)
+            ((target.unit.type() === UnitType.HydrogenBomb ||
+              target.unit.type() === UnitType.FaultyBomb) &&
+              best.unit.type() !== UnitType.HydrogenBomb &&
+              best.unit.type() !== UnitType.FaultyBomb)
           ) {
             best = target;
           }

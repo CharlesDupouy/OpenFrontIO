@@ -6,6 +6,7 @@ import { FactoryExecution } from "./FactoryExecution";
 import { GodzillaExecution } from "./GodzillaExecution";
 import { MirvExecution } from "./MIRVExecution";
 import { MissileSiloExecution } from "./MissileSiloExecution";
+import { FaultyBombExecution } from "./FaultyBombExecution";
 import { NukeExecution } from "./NukeExecution";
 import { PortExecution } from "./PortExecution";
 import { SAMLauncherExecution } from "./SAMLauncherExecution";
@@ -113,6 +114,16 @@ export class ConstructionExecution implements Execution {
             null,
             -1,
             0,
+            this.rocketDirectionUp,
+          ),
+        );
+        break;
+      case UnitType.FaultyBomb:
+        this.mg.addExecution(
+          new FaultyBombExecution(
+            player,
+            this.tile,
+            null,
             this.rocketDirectionUp,
           ),
         );

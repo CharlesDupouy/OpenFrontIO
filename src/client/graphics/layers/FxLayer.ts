@@ -77,6 +77,10 @@ export class FxLayer implements Layer {
         this.onNukeEvent(unit, 160);
         break;
       }
+      case UnitType.FaultyBomb: {
+        this.onNukeEvent(unit, 160);
+        break;
+      }
       case UnitType.Warship:
         this.onWarshipEvent(unit);
         break;
@@ -104,6 +108,9 @@ export class FxLayer implements Layer {
         break;
       case UnitType.HydrogenBomb:
         this.eventBus.emit(new PlaySoundEffectEvent("hydrogen-launch"));
+        break;
+      case UnitType.FaultyBomb:
+        this.eventBus.emit(new PlaySoundEffectEvent("atom-launch"));
         break;
       case UnitType.Godzilla:
         this.eventBus.emit(new PlaySoundEffectEvent("atom-launch"));

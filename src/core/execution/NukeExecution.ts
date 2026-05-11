@@ -370,6 +370,7 @@ export class NukeExecution implements Execution {
       if (
         type === UnitType.AtomBomb ||
         type === UnitType.HydrogenBomb ||
+        type === UnitType.FaultyBomb ||
         type === UnitType.MIRVWarhead ||
         type === UnitType.MIRV ||
         type === UnitType.SAMMissile

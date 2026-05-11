@@ -1193,6 +1193,7 @@ export class PlayerImpl implements Player {
         return this.nukeSpawn(targetTile, unitType);
       case UnitType.AtomBomb:
       case UnitType.HydrogenBomb:
+      case UnitType.FaultyBomb:
         return this.nukeSpawn(targetTile, unitType);
       case UnitType.Godzilla:
         return this.godzillaSpawn(targetTile);

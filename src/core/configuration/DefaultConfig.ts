@@ -390,6 +390,11 @@ export class DefaultConfig implements Config {
           cost: this.costWrapper(() => 5_000_000, UnitType.HydrogenBomb),
         };
         break;
+      case UnitType.FaultyBomb:
+        info = {
+          cost: this.costWrapper(() => 2_000_000, UnitType.FaultyBomb),
+        };
+        break;
       case UnitType.MIRV:
         info = {
           cost: (game: Game, player: Player) => {
@@ -905,6 +910,7 @@ export class DefaultConfig implements Config {
       case UnitType.AtomBomb:
         return { inner: 12, outer: 30 };
       case UnitType.HydrogenBomb:
+      case UnitType.FaultyBomb:
         return { inner: 80, outer: 100 };
     }
     throw new Error(`Unknown nuke type: ${unitType}`);

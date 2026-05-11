@@ -673,7 +673,8 @@
     "hydrogen_bomb": "Hydrogen Bomb",
     "mirv": "MIRV",
     "factory": "Factory",
-    "godzilla": "Godzilla"
+    "godzilla": "Godzilla",
+    "faulty_bomb": "Faulty Bomb"
   },
   "user_setting": {
     "title": "Settings",
@@ -893,6 +894,7 @@
     "desc": {
       "atom_bomb": "Small explosion",
       "hydrogen_bomb": "Large explosion",
+      "faulty_bomb": "Hydrogen-level explosion, cheap but may backfire or explode mid-flight!",
       "mirv": "Huge explosion, only targets selected player",
       "godzilla": "Neutral monster that destroys structures and leaves fallout",
       "missile_silo": "Used to launch nukes",

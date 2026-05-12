@@ -216,6 +216,7 @@ export default defineConfig(({ mode }) => {
 
     server: {
       port: 9000,
+      host: true,
       // Automatically open the browser when the server starts
       open: process.env.SKIP_BROWSER_OPEN !== "true",
       proxy: {

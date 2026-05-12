@@ -674,7 +674,8 @@
     "mirv": "MIRV",
     "factory": "Factory",
     "godzilla": "Godzilla",
-    "faulty_bomb": "Faulty Bomb"
+    "faulty_bomb": "Faulty Bomb",
+    "death_ray": "Death Ray"
   },
   "user_setting": {
     "title": "Settings",
@@ -895,6 +896,7 @@
       "atom_bomb": "Small explosion",
       "hydrogen_bomb": "Large explosion",
       "faulty_bomb": "Hydrogen-level explosion, cheap but may backfire or explode mid-flight!",
+      "death_ray": "Destroys all connected territory of the target player (40M gold)",
       "mirv": "Huge explosion, only targets selected player",
       "godzilla": "Neutral monster that destroys structures and leaves fallout",
       "missile_silo": "Used to launch nukes",

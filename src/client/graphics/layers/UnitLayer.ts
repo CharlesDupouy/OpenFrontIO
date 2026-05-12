@@ -453,6 +453,7 @@ export class UnitLayer implements Layer {
       case UnitType.AtomBomb:
       case UnitType.HydrogenBomb:
       case UnitType.FaultyBomb:
+      case UnitType.DeathRay:
       case UnitType.MIRV:
         this.handleNuke(unit);
         break;

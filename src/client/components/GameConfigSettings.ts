@@ -99,6 +99,7 @@ const unitOptions: { type: UnitType; translationKey: string }[] = [
   { type: UnitType.AtomBomb, translationKey: "unit_type.atom_bomb" },
   { type: UnitType.HydrogenBomb, translationKey: "unit_type.hydrogen_bomb" },
   { type: UnitType.FaultyBomb, translationKey: "unit_type.faulty_bomb" },
+  { type: UnitType.DeathRay, translationKey: "unit_type.death_ray" },
   { type: UnitType.MIRV, translationKey: "unit_type.mirv" },
   { type: UnitType.Factory, translationKey: "unit_type.factory" },
 ];

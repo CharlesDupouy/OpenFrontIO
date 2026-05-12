@@ -1,7 +1,14 @@
 import { z } from "zod";
 import { UnitType } from "./game/Game";
 
-export const bombUnits = ["abomb", "hbomb", "mirv", "mirvw", "fbomb"] as const;
+export const bombUnits = [
+  "abomb",
+  "hbomb",
+  "mirv",
+  "mirvw",
+  "fbomb",
+  "dray",
+] as const;
 export const BombUnitSchema = z.enum(bombUnits);
 export type BombUnit = z.infer<typeof BombUnitSchema>;
 export type NukeType =
@@ -9,7 +16,8 @@ export type NukeType =
   | UnitType.HydrogenBomb
   | UnitType.MIRV
   | UnitType.MIRVWarhead
-  | UnitType.FaultyBomb;
+  | UnitType.FaultyBomb
+  | UnitType.DeathRay;
 
 export const unitTypeToBombUnit = {
   [UnitType.AtomBomb]: "abomb",
@@ -17,6 +25,7 @@ export const unitTypeToBombUnit = {
   [UnitType.MIRV]: "mirv",
   [UnitType.MIRVWarhead]: "mirvw",
   [UnitType.FaultyBomb]: "fbomb",
+  [UnitType.DeathRay]: "dray",
 } as const satisfies Record<NukeType, BombUnit>;
 
 export const boatUnits = ["trade", "trans"] as const;

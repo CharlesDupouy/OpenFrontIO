@@ -106,6 +106,7 @@ export class DynamicUILayer implements Layer {
       case UnitType.HydrogenBomb:
       case UnitType.AtomBomb:
       case UnitType.FaultyBomb:
+      case UnitType.DeathRay:
       case UnitType.Godzilla: {
         this.onBombEvent(unit);
         break;

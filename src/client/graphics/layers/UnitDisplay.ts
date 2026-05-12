@@ -77,6 +77,7 @@ export class UnitDisplay extends LitElement implements Layer {
       case UnitType.AtomBomb:
       case UnitType.HydrogenBomb:
       case UnitType.FaultyBomb:
+      case UnitType.DeathRay:
       case UnitType.MIRV:
         return (
           this.cost(item) <= (player?.gold() ?? 0n) &&
@@ -281,6 +282,7 @@ export class UnitDisplay extends LitElement implements Layer {
               case UnitType.AtomBomb:
               case UnitType.HydrogenBomb:
               case UnitType.FaultyBomb:
+              case UnitType.DeathRay:
                 this.eventBus?.emit(
                   new ToggleStructureEvent([
                     UnitType.MissileSilo,

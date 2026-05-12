@@ -46,6 +46,7 @@ export class SAMMissileExecution implements Execution {
       UnitType.AtomBomb,
       UnitType.HydrogenBomb,
       UnitType.FaultyBomb,
+      UnitType.DeathRay,
     ];
     if (
       !this.target.isActive() ||

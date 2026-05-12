@@ -36,6 +36,7 @@ const missileSiloIcon = assetUrl("images/MissileSiloIconWhite.svg");
 const hydrogenBombIcon = assetUrl("images/MushroomCloudIconWhite.svg");
 const atomBombIcon = assetUrl("images/NukeIconWhite.svg");
 const faultyBombIcon = assetUrl("images/NukeIconWhite.svg");
+const deathRayIcon = assetUrl("images/MIRVIcon.svg");
 const portIcon = assetUrl("images/PortIcon.svg");
 const samlauncherIcon = assetUrl("images/SamLauncherIconWhite.svg");
 const shieldIcon = assetUrl("images/ShieldIconWhite.svg");
@@ -76,6 +77,13 @@ export const buildTable: BuildItemDisplay[][] = [
       icon: faultyBombIcon,
       description: "build_menu.desc.faulty_bomb",
       key: "unit_type.faulty_bomb",
+      countable: false,
+    },
+    {
+      unitType: UnitType.DeathRay,
+      icon: deathRayIcon,
+      description: "build_menu.desc.death_ray",
+      key: "unit_type.death_ray",
       countable: false,
     },
     {

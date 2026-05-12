@@ -395,6 +395,11 @@ export class DefaultConfig implements Config {
           cost: this.costWrapper(() => 2_000_000, UnitType.FaultyBomb),
         };
         break;
+      case UnitType.DeathRay:
+        info = {
+          cost: this.costWrapper(() => 40_000_000, UnitType.DeathRay),
+        };
+        break;
       case UnitType.MIRV:
         info = {
           cost: (game: Game, player: Player) => {
@@ -912,6 +917,9 @@ export class DefaultConfig implements Config {
       case UnitType.HydrogenBomb:
       case UnitType.FaultyBomb:
         return { inner: 80, outer: 100 };
+      case UnitType.DeathRay:
+        // Magnitude is used for team-safety checks; actual destruction is territory-based
+        return { inner: 150, outer: 200 };
     }
     throw new Error(`Unknown nuke type: ${unitType}`);
   }

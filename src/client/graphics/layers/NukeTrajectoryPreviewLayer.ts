@@ -51,7 +51,8 @@ export class NukeTrajectoryPreviewLayer implements Layer {
       if (
         e.ghostStructure !== UnitType.AtomBomb &&
         e.ghostStructure !== UnitType.HydrogenBomb &&
-        e.ghostStructure !== UnitType.FaultyBomb
+        e.ghostStructure !== UnitType.FaultyBomb &&
+        e.ghostStructure !== UnitType.DeathRay
       ) {
         this.trajectoryPoints = [];
         this.lastTargetTile = null;
@@ -84,7 +85,8 @@ export class NukeTrajectoryPreviewLayer implements Layer {
     const isNukeType =
       ghostStructure === UnitType.AtomBomb ||
       ghostStructure === UnitType.HydrogenBomb ||
-      ghostStructure === UnitType.FaultyBomb;
+      ghostStructure === UnitType.FaultyBomb ||
+      ghostStructure === UnitType.DeathRay;
 
     // Clear trajectory if not a nuke type
     if (!isNukeType) {
@@ -171,7 +173,8 @@ export class NukeTrajectoryPreviewLayer implements Layer {
     const isNukeType =
       ghostStructure === UnitType.AtomBomb ||
       ghostStructure === UnitType.HydrogenBomb ||
-      ghostStructure === UnitType.FaultyBomb;
+      ghostStructure === UnitType.FaultyBomb ||
+      ghostStructure === UnitType.DeathRay;
 
     // Clear trajectory if not a nuke type or no cached spawn tile
     if (!isNukeType || !this.cachedSpawnTile) {
@@ -291,7 +294,8 @@ export class NukeTrajectoryPreviewLayer implements Layer {
     const isNukeType =
       ghostStructure === UnitType.AtomBomb ||
       ghostStructure === UnitType.HydrogenBomb ||
-      ghostStructure === UnitType.FaultyBomb;
+      ghostStructure === UnitType.FaultyBomb ||
+      ghostStructure === UnitType.DeathRay;
 
     if (!isNukeType || this.trajectoryPoints.length === 0) {
       return;
